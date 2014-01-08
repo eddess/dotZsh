@@ -1,0 +1,2 @@
+PROMPT='%{$fg[cyan]%}%n%{$reset_color%} at %{$fg[yellow]%}%M%{$reset_color%} in %{$fg[green]%}%~%b%{$reset_color%}
+%% '
