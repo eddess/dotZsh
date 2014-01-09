@@ -39,6 +39,19 @@ source $MY_ZSH/zsh_theme
 # syntax highlighting like fish shell
 source $MY_ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# completion options
+zstyle ':completion:*' expand 'yes'
+zstyle ':completion:*' squeeze-shlashes 'yes'
+zstyle ':completion::complete:*' '\\'
+zstyle ':completion:*:*:*:default' menu yes select
+zstyle ':completion:*:*:default' force-list always
+export ZLSCOLORS="${LS_COLORS}"
+zmodload  zsh/complist
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31' 
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
 
 # ------------------------------------------------------
