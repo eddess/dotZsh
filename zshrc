@@ -6,6 +6,8 @@ export TERM="xterm-256color"
 # Path to Home of my ZSH configs
 MY_ZSH=$HOME/.zsh
 
+# --------------------------------------------------
+# Oh-my ZSH configuration
 # Path to your oh-my-zsh configuration.
 ZSH=$MY_ZSH/oh-my-zsh
 
@@ -22,16 +24,22 @@ COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Plugins
-plugins=(git colored-man)
+plugins=(git colored-man svn)
 
 # Set name of the theme to load.
 # ZSH_THEME="Soliah"
 
 source $ZSH/oh-my-zsh.sh
 # ------------------------------------------------------
-# Customize to your needs...
+# Customize ZSH
 
+# theme
 source $MY_ZSH/zsh_theme
+
+# syntax highlighting like fish shell
+source $MY_ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
 
 # ------------------------------------------------------
 # Program settings
