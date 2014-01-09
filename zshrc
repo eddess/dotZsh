@@ -1,3 +1,5 @@
+# -*-sh-*-
+	
 # USe 256 colors
 export TERM="xterm-256color"
 
@@ -20,7 +22,7 @@ COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Plugins
-plugins=()
+plugins=(git colored-man)
 
 # Set name of the theme to load.
 # ZSH_THEME="Soliah"
@@ -30,3 +32,13 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 
 source $MY_ZSH/zsh_theme
+
+# ------------------------------------------------------
+# Program settings
+
+# Use ssh with pageant
+
+if [[ `uname -o` == "Cygwin" ]]
+then
+	eval $(ssh-pageant -ra /tmp/.ssh-pageant)
+fi
