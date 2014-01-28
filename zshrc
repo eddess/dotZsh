@@ -6,6 +6,11 @@ export TERM="xterm-256color"
 # Path to Home of my ZSH configs
 MY_ZSH=$HOME/.zsh
 
+# history
+export HISTSIZE=2000 
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+
 # --------------------------------------------------
 # Oh-my ZSH configuration
 # Path to your oh-my-zsh configuration.
