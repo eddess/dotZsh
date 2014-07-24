@@ -62,9 +62,7 @@ zstyle ':completion:*:approximate:*' max-errors 1 numeric
 # ------------------------------------------------------
 # Program settings
 
-# Use ssh with pageant
-
-if [[ `uname -o` == "Cygwin" ]]
-then
-	eval $(ssh-pageant -ra /tmp/.ssh-pageant)
+# local profile
+if [ -f ~/.profile ]; then
+	source ~/.profile
 fi
