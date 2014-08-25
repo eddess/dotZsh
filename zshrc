@@ -66,3 +66,6 @@ zstyle ':completion:*:approximate:*' max-errors 1 numeric
 if [ -f ~/.profile ]; then
 	source ~/.profile
 fi
+
+PERL_MB_OPT="--install_base \"/cygdrive/d/configs/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/cygdrive/d/configs/perl5"; export PERL_MM_OPT;
