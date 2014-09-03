@@ -10,7 +10,16 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 # %{$fg[cyan]%}%n%{$reset_color%} %{$fg[yellow]%}%M%{$reset_color%} %{$fg[green]%}%~%b%{$reset_color%}$(git_prompt_info)
 #%% '
 
-
-PROMPT='
+case "$TERM" in
+	"dumb")
+		PROMPT='> '
+		;;
+	xterm*|rxvt*|eterm*|screen*)
+		PROMPT='
 %{$fg[cyan]%}%~%b%{$reset_color%}$(git_prompt_info)
 %% '
+		;;
+	*)
+		PROMPT='> '
+		;;
+esac
