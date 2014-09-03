@@ -1,13 +1,10 @@
 # -*-sh-*-
-	
-# USe 256 colors
-export TERM="xterm-256color"
 
 # Path to Home of my ZSH configs
 MY_ZSH=$HOME/.zsh
 
 # history
-export HISTSIZE=2000 
+export HISTSIZE=2000
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 
@@ -53,7 +50,7 @@ zstyle ':completion:*:*:default' force-list always
 export ZLSCOLORS="${LS_COLORS}"
 zmodload  zsh/complist
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31' 
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
