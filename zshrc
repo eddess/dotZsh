@@ -26,7 +26,7 @@ COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Plugins
-plugins=(git colored-man svn)
+plugins=(git colored-man history-substring-search mvn virtualenvwrapper)
 
 # Set name of the theme to load.
 # ZSH_THEME="Soliah"
@@ -38,8 +38,14 @@ source $ZSH/oh-my-zsh.sh
 # theme
 source $MY_ZSH/zsh_theme
 
+# extra completion options for zsh
+fpath=($MY_ZSH/zsh-completions/src $fpath)
+
 # syntax highlighting like fish shell
 source $MY_ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=magenta,bold'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=''
 
 # completion options
 zstyle ':completion:*' expand 'yes'
