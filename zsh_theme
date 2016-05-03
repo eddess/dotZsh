@@ -6,14 +6,10 @@ ZSH_THEME_GIT_PROMPT_DIRTY="!"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="?"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-# PROMPT='
-# %{$fg[cyan]%}%n%{$reset_color%} %{$fg[yellow]%}%M%{$reset_color%} %{$fg[green]%}%~%b%{$reset_color%}$(git_prompt_info)
-#%% '
-
 case "$TERM" in
 	xterm*|rxvt*|eterm*|screen*|emacs|linux)
 		PROMPT='
-%n@%M:%~$(git_prompt_info)
+%n at %M on %~$(git_prompt_info)
 > '
 		;;
 	*)

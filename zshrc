@@ -26,10 +26,7 @@ COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Plugins
-plugins=(git colored-man history-substring-search mvn virtualenvwrapper)
-
-# Set name of the theme to load.
-# ZSH_THEME="Soliah"
+plugins=(git colored-man history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 # ------------------------------------------------------
@@ -44,6 +41,7 @@ fpath=($MY_ZSH/zsh-completions/src $fpath)
 # syntax highlighting like fish shell
 source $MY_ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# history substring highlighting
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=magenta,bold'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=''
 
@@ -53,14 +51,16 @@ zstyle ':completion:*' squeeze-shlashes 'yes'
 zstyle ':completion::complete:*' '\\'
 zstyle ':completion:*:*:*:default' menu yes select
 zstyle ':completion:*:*:default' force-list always
-export ZLSCOLORS="${LS_COLORS}"
-zmodload  zsh/complist
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*' completer _complete _match _approximate
 zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
+zmodload  zsh/complist
+
+# LS colors
+export ZLSCOLORS="${LS_COLORS}"
 
 # ------------------------------------------------------
 # Program settings
@@ -70,5 +70,45 @@ if [ -f ~/.profile ]; then
 	source ~/.profile
 fi
 
-PERL_MB_OPT="--install_base \"/cygdrive/d/configs/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/cygdrive/d/configs/perl5"; export PERL_MM_OPT;
+
+# define function to move stuff to OsX trash
+trash() {
+	command mv "$@" ~/.Trash;
+}
+
+#   extract:  Extract most known archives with one command
+#   ---------------------------------------------------------
+extract () {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)   tar xjf $1     ;;
+            *.tar.gz)    tar xzf $1     ;;
+            *.bz2)       bunzip2 $1     ;;
+            *.rar)       unrar e $1     ;;
+            *.gz)        gunzip $1      ;;
+            *.tar)       tar xf $1      ;;
+            *.tbz2)      tar xjf $1     ;;
+            *.tgz)       tar xzf $1     ;;
+            *.zip)       unzip $1       ;;
+            *.Z)         uncompress $1  ;;
+            *.7z)        7z x $1        ;;
+            *)     echo "'$1' cannot be extracted via extract()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
+
+# Editor settings
+EMACSDIR=~/Applications/Emacs.app/Contents/MacOS
+export PATH=${EMACSDIR}/bin:${PATH}
+alias emacs="${EMACSDIR}/Emacs"
+alias emacsd="emacs --daemon"
+alias em="emacsclient -c -n"
+alias en="emacsclient"
+
+export EDITOR="emacsclient -nw"
+unset EMACSDIR
+
+# Ls
+alias ls="command ls -FG"
