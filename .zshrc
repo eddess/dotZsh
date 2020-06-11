@@ -101,6 +101,3 @@ extract () {
 
 # Editor settings
 export EDITOR="vim"
-
-# Ls
-alias ls="command ls -FG"
