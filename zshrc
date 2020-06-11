@@ -1,7 +1,7 @@
 # -*-sh-*-
 
 # Path to Home of my ZSH configs
-export ZSH_CONFIGS=${HOME}/.zsh
+ZSH_CONFIGS=${HOME}/.zsh
 
 # history
 export HISTSIZE=2000
