@@ -1,7 +1,7 @@
 # -*-sh-*-
 
 # Path to Home of my ZSH configs
-MY_ZSH=${ZDOTDIR}
+export ZSH_CONFIGS=${HOME}/.zsh
 
 # history
 export HISTSIZE=2000
@@ -11,7 +11,7 @@ setopt hist_ignore_space
 # --------------------------------------------------
 # Oh-my ZSH configuration
 # Path to your oh-my-zsh configuration.
-ZSH=$MY_ZSH/oh-my-zsh
+ZSH=${ZSH_CONFIGS}/oh-my-zsh
 
 # Disable bi-weekly auto-update checks
 DISABLE_AUTO_UPDATE="true"
@@ -33,13 +33,13 @@ source $ZSH/oh-my-zsh.sh
 # Customize ZSH
 
 # theme
-source $MY_ZSH/zsh_theme
+source ${ZSH_CONFIGS}/zsh_theme
 
 # extra completion options for zsh
-fpath=($MY_ZSH/zsh-completions/src $fpath)
+fpath=(${ZSH_CONFIGS}/zsh-completions/src $fpath)
 
 # syntax highlighting like fish shell
-source $MY_ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${ZSH_CONFIGS}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # history substring highlighting
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=magenta,bold'
