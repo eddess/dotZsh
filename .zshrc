@@ -1,7 +1,7 @@
 # -*-sh-*-
 
 # Path to Home of my ZSH configs
-MY_ZSH=$HOME/.zsh
+MY_ZSH=${ZDOTDIR}
 
 # history
 export HISTSIZE=2000
@@ -100,15 +100,7 @@ extract () {
 }
 
 # Editor settings
-EMACSDIR=~/Applications/Emacs.app/Contents/MacOS
-export PATH=${EMACSDIR}/bin:${PATH}
-alias emacs="${EMACSDIR}/Emacs"
-alias emacsd="emacs --daemon"
-alias em="emacsclient -c -n"
-alias en="emacsclient"
-
-export EDITOR="emacsclient -nw"
-unset EMACSDIR
+export EDITOR="vim"
 
 # Ls
 alias ls="command ls -FG"
