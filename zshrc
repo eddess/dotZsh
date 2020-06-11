@@ -26,7 +26,7 @@ COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Plugins
-plugins=(git colored-man history-substring-search)
+plugins=(git colored-man-pages history-substring-search docker docker-compose docker-machine)
 
 source $ZSH/oh-my-zsh.sh
 # ------------------------------------------------------
