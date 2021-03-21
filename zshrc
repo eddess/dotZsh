@@ -45,6 +45,11 @@ source ${ZSH_CONFIGS}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=magenta,bold'
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=''
 
+# LS colors
+export LS_COLORS="di=34:ln=35:so=31:pi=33:ex=32:bd=1;34:cd=1;34:su=1;32:sg=1;32:tw=1;36:ow=1;36"
+export LSCOLORS="exfxbxdxcxExExCxCxGxGx"
+export ZLSCOLORS="${LS_COLORS}"
+
 # completion options
 zstyle ':completion:*' expand 'yes'
 zstyle ':completion:*' squeeze-shlashes 'yes'
@@ -58,9 +63,6 @@ zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
 zmodload  zsh/complist
-
-# LS colors
-export ZLSCOLORS="${LS_COLORS}"
 
 # ------------------------------------------------------
 # Program settings
@@ -100,4 +102,9 @@ extract () {
 }
 
 # Editor settings
-export EDITOR="vim"
+export VISUAL="vim"
+export EDITOR=$VISUAL
+
+# Redirect WSL X output to windows
+export LIBGL_ALWAYS_INDIRECT=1
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
