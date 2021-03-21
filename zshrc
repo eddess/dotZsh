@@ -104,7 +104,3 @@ extract () {
 # Editor settings
 export VISUAL="vim"
 export EDITOR=$VISUAL
-
-# Redirect WSL X output to windows
-export LIBGL_ALWAYS_INDIRECT=1
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
